@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Tanıtım</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #eeeeee;
+            border: none;
+            color: darkcyan;
+            text-align: center;
+            padding: 5px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            clear: both;
+        }
+        
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .button:hover span {
+            padding-right: 25px;
+        }
+        
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        
+        #header {
+            background-color: black;
+            color: darkcyan;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        #section {
+            background-color: beige;
+            clear: both;
+            text-align: center;
+            padding: 140px;
+        }
+        
+        #footer {
+            background-color: black;
+            color: white;
+            clear: both;
+            text-align: center;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
+    </div>
+
+    <div style="text-align: center"><strong>
+       <a href="anasayfa.html" class="button" style="vertical-align: middle"><span>Anasayfa</span></a></strong> &nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="misyonumuz.html" class="button" style="vertical-align: middle"><span>Misyonumuz</span></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;  <strong><a href="tanıtım.html" class="button" style="vertical-align: middle"><span>Sistem Hakkında</span></a></strong>&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="login.php" class="button" target="_blank" style="vertical-align: middle"><span>Sisteme Giriş</span></a></strong> &nbsp;&nbsp;&nbsp;&nbsp; <strong> <a href="iletişim.html" class="button" style="vertical-align: middle"><span>İletişim</span></a></strong>
+
+    </div>
+
+
+
+
+    <div id="section">
+        <h2>SİSTEM TANITIMI</h2>
+        <p>Projemiz, sera alanlarınızda sulama, havalandırma gibi temel işlevleri uzaktan kontrol sistemiyle internet bağlantısı aracılığıyla mobil ve web üzerinden kontrol edebilmenizi sağlamaktadır. </p>
+        <p>Sistemimiz <strong>Arduino</strong> geliştirme kartları ile oluşturulmuştur.</p>
+        <p>Seranızın belirli bölgelerine entegre edilecek sensörler sayesinde anlık olarak sera bilgilerinizi sistem üzerinde görebilmeniz sağlanmaktadır.</p>
+        <p>Sensör sayısı dekar başına standart olmakla beraber kullanıcının isteğine göre artırılabilmektedir. </p>
+        <p>10 dekarlık bir sera alanınız için 15.000 lira fiyat değerlendirmesi yapılmaktadır.</p>
+    </div>
+
+    <div id="footer">
+        Copyright © talat&sedat
+    </div>
+</body>
+
+</html>
