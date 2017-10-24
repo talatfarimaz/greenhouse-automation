@@ -34,6 +34,12 @@
       <title>Giriş</title>
       <meta charset="UTF-8">
       <style>
+          body {
+              background-image: url(14.jpg);
+              background-position: center top;
+              background-size: 100% auto;
+          }
+          
 		    #header {
             background-color: black;
             color: darkcyan;
@@ -50,7 +56,7 @@
         }
         
         #section {
-            background-color: beige;          
+                    
             padding: 140px;
         }
          
@@ -68,14 +74,14 @@
     </div>
 	
       <div id="section" align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
+          <div style = "width:300px; border: solid 1px #333333; background-color:#e6ffe6 "  align = "left">
             <div  style = "background-color:black; text-align:center; color:darkcyan; padding:3px;"><b>Giriş</b></div>
 				
             <div style = "margin:30px">
                
                <form action = "" method = "post">
-                  <label>eposta  :</label><input type = "text" name = "eposta" class = "box"/><br /><br />
-                  <label>şifre  :</label><input type = "password" name = "sifre" class = "box" /><br/><br />
+                   <label color="darkcyan"><strong>eposta  :</strong></label><input type = "text" name = "eposta" class = "box"/><br /><br />
+                   <label color="darkcyan"><strong>şifre  :</strong></label><input type = "password" name = "sifre" class = "box" /><br/><br />
                   <input type = "submit" style="text-align:center; color:darkcyan; padding:3px;" value = " Giriş "/>&nbsp;&nbsp; <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Kaydol" onclick="location='register.php'" />
                </form>
                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
@@ -85,9 +91,10 @@
          </div>
 			
       </div>
+       <br><br><br><br><br><br><br><br><br><br><br><br>
       
       <div id="footer">
-        Copyright © talat&sedat
+        Copyright © TSM
     </div>
 
    </body>
