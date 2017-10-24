@@ -25,7 +25,13 @@ $conn->query($sql2);*/
         <title>Sera Bilgileri</title>
         <meta http-equiv="refresh" content="60">
         <meta charset="UTF-8">
-        <style type="text/css">
+        <style>
+            body {
+                background-image: url(14.jpg);
+                background-position: center top;
+                background-size: 100% auto;
+            }
+            
             #header {
                 background-color: black;
                 color: darkcyan;
@@ -42,8 +48,8 @@ $conn->query($sql2);*/
             }
 
             #section {
-                background-color: beige;
-                padding: 100px;
+                
+                padding: 60px;
             }
 
 
@@ -61,11 +67,11 @@ $conn->query($sql2);*/
             <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
         </div>
 
-        <div style="background-color:beige; clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
+        <div style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
             $result=$conn->query($sql);
             $row=$result->fetch_assoc();
             echo $row["isim"]; ?></h2></strong><br>
-            <p style="text-align:center; color:darkcyan;clear:both;">Sera bilgileriniz aşağıdaki gibidir. Lütfen seranızı kontrol etmek için butonları kullanınız.</p>
+            <p style="text-align:center; color:darkcyan;clear:both;"><strong>Sera bilgileriniz aşağıdaki gibidir. Lütfen seranızı kontrol etmek için kontrol panelini kullanınız.</strong></p>
         </div>
 
         <div id="section" align="center">
@@ -124,6 +130,8 @@ $conn->query($sql2);*/
                         </br>
 
                         <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Çıkış" onclick="location='login.php'" />
+                        &nbsp;&nbsp;
+                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Kontrol Paneli" onclick="location='panel.php'" />
 
 
 
@@ -134,7 +142,7 @@ $conn->query($sql2);*/
         </div>
 
         <div id="footer">
-            Copyright © talat&sedat
+            Copyright © TMS
         </div>
 
     </body>
