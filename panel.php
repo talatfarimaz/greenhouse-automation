@@ -3,6 +3,13 @@ include("config.php");
 error_reporting(E_ALL ^ E_NOTICE); 
 session_start();
 mysqli_set_charset($conn,"utf8_turkish_ci");
+
+$eposta = $_SESSION["eposta"];
+$sifre = $_SESSION["sifre"];
+$sql="SELECT kisi_id FROM kisi_bilgileri WHERE eposta='$eposta' and sifre='$sifre'";
+$result=$conn->query($sql);
+$row = $result->fetch_assoc(); 
+$id=$row["kisi_id"];
  
 ?>
 
@@ -12,6 +19,12 @@ mysqli_set_charset($conn,"utf8_turkish_ci");
         <title>Kontrol Paneli</title>
         <meta charset="UTF-8">
         <style>
+            body {
+                background-image: url(14.jpg);
+                background-position: center top;
+                background-size: 100% auto;
+            }
+
             #header {
                 background-color: black;
                 color: darkcyan;
@@ -28,8 +41,8 @@ mysqli_set_charset($conn,"utf8_turkish_ci");
             }
 
             #section {
-                background-color: beige;
-                padding: 140px;
+
+                padding: 60px;
             }
 
             .box {
@@ -47,118 +60,74 @@ mysqli_set_charset($conn,"utf8_turkish_ci");
         </div>
 
 
-        <div style="margin:30px">
-            <?php
+
+        <div style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
+            $result=$conn->query($sql);
+            $row=$result->fetch_assoc();
+            echo $row["isim"]; ?></h2></strong><br>
+            <p style="text-align:center; color:darkcyan;clear:both;"><strong>Seranızı butonlarla kontrol edebilirsiniz.</strong></p>
+        </div>
+
+        <div id="section" align="center">
+            <div style="width:400px; border: solid 1px #333333; background-color:#e6ffe6" align="left">
+                <div style="background-color:black; clear:both; text-align:center; color:darkcyan; padding:3px;"><b>Kontrol Paneli</b></div>
+
+
+                <div style="margin:30px">
+
+
+
+
+                    <?php
             $port1 = fopen("COM1", "w+");
-            $port2 = fopen("COM2", "w+");
+            
             
 
             sleep(2);
             ?>
 
-            <form action="panel.php" method="POST">
-                <input type="hidden" name="turn1" value="Vanayı Aç" />
-                <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Vanayı Aç">
-            </form>
-            <form action="panel.php" method="POST">
-                <input type="hidden" name="turn1" value="Vanayı Kapat" />
-                <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Vanayı Kapat">
-            </form>
-            <form action="panel.php" method="POST">
-                <input type="hidden" name="turn2" value="Havalandırmayı Aç" />
-                <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Havalandırmayı Aç">
-            </form>
-            <form action="panel.php" method="POST">
-                <input type="hidden" name="turn2" value="Havalandırmayı Kapat" />
-                <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Havalandırmayı Kapat">
-            </form>
-            <form action="panel.php" method="POST">
-                <input type="hidden" name="turn3" value="Fanı Aç" />
-                <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Fanı Aç">
-            </form>
-            <form action="panel.php" method="POST">
-                <input type="hidden" name="turn3" value="Fanı Kapat" />
-                <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Fanı Kapat">
-            </form>
-            <input type="button" name="xx" value="aç">
-            <input type="button" name="yy" value="kapat">
-            
-            <button onclick="ikaz1()">deneme1</button>
+                        <form action="panel.php" method="POST">
+                            <input type="hidden" name="turn" value="Vanayı Aç" />
+                            <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Vanayı Aç">
+                        </form>
+                        <form action="panel.php" method="POST">
+                            <input type="hidden" name="turn" value="Vanayı Kapat" />
+                            <input type="Submit" style="text-align:center; color:darkcyan; padding:3px;" value="Vanayı Kapat">
+                        </form>
 
-            <script>
-                function ikaz1() {
-                    document.getElementById("demo1").innerHTML = "Vana Açık";
-                    <?php  
-                   
-                    fwrite($port1, "n");
-                    fclose($port1);?>;
-                }
-            </script>
-
-            <p id="demo1"></p>
-            
-            <button onclick="ikaz2()">deneme2</button>
-
-            <script>
-                function ikaz2() {
-                    document.getElementById("demo2").innerHTML = "Fan açık";
-                        <?php 
-                    
-                    fwrite($port1, "y"); 
-                    fclose($port1);?>;
-                }
-            </script>
-
-            <p id="demo2"></p>
-            
-            
-            
-            
-            <?php
+                        <?php
             
 
-            if ($_POST["turn1"]=="Vanayı Aç")
+            if ($_POST["turn"]=="Vanayı Aç")
             {
                 echo "Vana Açık";
                 fwrite($port1, "n");
             }
 
-            if ($_POST["turn1"]=="Vanayı Kapat")
+            if ($_POST["turn"]=="Vanayı Kapat")
             {
                 echo "Vana Kapalı";
                 fwrite($port1, "f");
             }
-            
-            if ($_POST["turn2"]=="Havalandırmayı Aç")
-            {
-                echo "Havalandırma Açık";
-                fwrite($port2, "n");
-            }
-
-            if ($_POST["turn2"]=="Havalandırmayı Kapat")
-            {
-                echo "Havalandırma Kapalı";
-                fwrite($port2, "f");
-            }
-
-            
-
-            //fclose($port1);
-            //fclose($port2);
-            ?>
-            
-            
            
-        
 
-        </div>
+            
 
+            fclose($port1);
+            
+            ?>
+
+
+
+
+                </div>
             </div>
-
         </div>
+
+
 
         <div id="footer">
-            Copyright © talat&sedat
+            Copyright © TMS
         </div>
 
     </body>
