@@ -64,11 +64,11 @@ $conn->query($sql);
             <div style = "margin:30px">
                
                <form action = "register.php" method = "post">
-                    <label>isim    : </label><input type = "text" name = "isim" class = "box"/><br /><br />
+                   <label><strong>isim    :</strong> </label><input type = "text" name = "isim" class = "box"/><br /><br />
 
-					<label>eposta  : </label><input type = "text" name = "eposta" class = "box"/><br /><br />
+                   <label><strong>eposta  :</strong> </label><input type = "text" name = "eposta" class = "box"/><br /><br />
 
-					<label>şifre   : </label><input type = "password" name = "sifre" class = "box"/><br /><br />
+                   <label><strong>şifre   : </strong></label><input type = "password" name = "sifre" class = "box"/><br /><br />
 
 					<input id="button" type="submit" style="text-align:center; color:darkcyan; padding:3px;" name="submit" value="Kaydol">&nbsp;&nbsp;  <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Çıkış" onclick="location='login.php'" />
                </form>
