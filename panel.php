@@ -215,8 +215,7 @@ sleep(2);
 
                             if ($_POST["aç-kapat3"]=="kapat")
                             {
-                                echo '<font color="red"><strong>Havalandırma Kapalı</strong></font><br>';             
-                                fwrite($port1, "F");
+                                echo '<font color="red"><strong>Havalandırma Kapalı</strong></font><br>';             fwrite($port1, "F");
                             }
 
 
@@ -243,4 +242,3 @@ sleep(2);
     </body>
 
     </html>
-

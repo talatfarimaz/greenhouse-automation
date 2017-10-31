@@ -9,5 +9,5 @@
    $conn->query($sql);
  
    
-   //kisi id 8 olacak
+   
 ?>
