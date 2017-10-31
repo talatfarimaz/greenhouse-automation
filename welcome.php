@@ -31,7 +31,7 @@ $conn->query($sql2);*/
                 background-position: center top;
                 background-size: 100% auto;
             }
-            
+
             #header {
                 background-color: black;
                 color: darkcyan;
@@ -48,7 +48,7 @@ $conn->query($sql2);*/
             }
 
             #section {
-                
+
                 padding: 60px;
             }
 
@@ -86,7 +86,7 @@ $conn->query($sql2);*/
                   <?php $sql="SELECT ruzgar_deger FROM sera_bilgileri WHERE kisi_id_sera='$id'";
 					$result=$conn->query($sql);
 					$row = $result->fetch_assoc(); 
-					echo $row["ruzgar_deger"]; ?></strong></br>
+                echo $row["ruzgar_deger"]; ?>&nbsp;km/s</strong></br>
                         </br>
 
                         <label>sıcaklık  :</label></br>
@@ -94,7 +94,7 @@ $conn->query($sql2);*/
                   <?php $sql="SELECT sicaklik_deger FROM sera_bilgileri WHERE kisi_id_sera='$id'";
 					$result=$conn->query($sql);
 					$row = $result->fetch_assoc(); 
-					echo $row["sicaklik_deger"]; ?></strong></br>
+                            echo $row["sicaklik_deger"]; ?>&nbsp;&#8451;</strong></br>
                         </br>
 
                         <label>nem  :</label></br>
@@ -102,7 +102,7 @@ $conn->query($sql2);*/
                   <?php $sql="SELECT nem_degerleri FROM sera_bilgileri WHERE kisi_id_sera='$id'";
 					$result=$conn->query($sql);
 					$row = $result->fetch_assoc(); 
-					echo $row["nem_degerleri"]; ?></strong></br>
+					echo $row["nem_degerleri"]; ?>&nbsp;&#37;</strong></br>
                         </br>
 
                         <label>vana  :</label></br>
@@ -129,9 +129,10 @@ $conn->query($sql2);*/
 					echo $row["saat"]; ?></strong></br>
                         </br>
 
-                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Çıkış" onclick="location='login.php'" />
-                        &nbsp;&nbsp;
-                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Kontrol Paneli" onclick="location='panel.php'" />
+                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Çıkış" onclick="location='login.php'" /> &nbsp;&nbsp;
+                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Kontrol" onclick="location='panel.php'" /> &nbsp;&nbsp;
+                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Grafik" onclick="location='grafik.php'" />
+
 
 
 
