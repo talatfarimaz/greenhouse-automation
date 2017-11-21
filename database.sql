@@ -2,6 +2,19 @@ create database sys;
 USE sys;
 SHOW ENGINE INNODB STATUS;
 
+create table if not exists `sys`.`vana_havalandırma` (
+   `kisi_id_vh` INT unsigned NOT NULL auto_increment,
+   `vana` varchar(45) null,
+   `havalandirma` varchar(45) null,
+   CONSTRAINT `fk_kisi_bilgileri`
+    FOREIGN KEY (`kisi_id_vh`)
+    REFERENCES `sys`.`kisi_bilgileri` (`kisi_id`)
+     ON DELETE CASCADE ON UPDATE CASCADE)
+     engine= InnoDB;
+   
+
+
+
 CREATE TABLE IF NOT EXISTS `sys`.`kisi_bilgileri` (
   `kisi_id` INT unsigned NOT NULL auto_increment,
   `isim` VARCHAR(45) NULL,
@@ -47,3 +60,8 @@ ENGINE = InnoDB;
 
 ALTER TABLE sera_bilgileri
 ADD saat timestamp;
+
+alter table vana_havalandırma add fan varchar(45);
+
+ALTER TABLE sera_bilgileri DROP COLUMN vana_durum;
+alter table sera_bilgileri drop column havalandirma_durum;
