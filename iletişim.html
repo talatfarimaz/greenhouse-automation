@@ -21,7 +21,7 @@
         }
         
         .button span {
-            cursor: pointer;
+            cursor: pointer; 
             display: inline-block;
             position: relative;
             transition: 0.5s;
@@ -45,26 +45,31 @@
             right: 0;
         }
         
-        #header {
+        .header {
             background-color: black;
             color: darkcyan;
             text-align: center;
             padding: 5px;
         }
         
-        #section {
+        .section {
             background-color: beige;
             clear: both;
             text-align: center;
             padding: 140px;
         }
         
-        #footer {
+        .footer {
             background-color: black;
             color: white;
             clear: both;
             text-align: center;
             padding: 5px;
+        }
+        
+        .rcorners2 {
+            border-radius: 15px 15px;
+            border : 2px solid black;
         }
 
     </style>
@@ -72,7 +77,7 @@
 
 <body>
 
-    <div id="header">
+    <div class="rcorners2 header">
         <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
     </div>
 
@@ -80,7 +85,7 @@
        <a href="anasayfa.html" class="button" style="vertical-align: middle"><span>Anasayfa</span></a></strong> &nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="misyonumuz.html" class="button" style="vertical-align: middle"><span>Misyonumuz</span></a></strong>&nbsp;&nbsp;&nbsp;&nbsp;  <strong><a href="tanıtım.html" class="button" style="vertical-align: middle"><span>Sistem Hakkında</span></a></strong>&nbsp;&nbsp;&nbsp;&nbsp; <strong><a href="login.php" class="button" target="_blank" style="vertical-align: middle"><span>Sisteme Giriş</span></a></strong> &nbsp;&nbsp;&nbsp;&nbsp; <strong> <a href="iletişim.html" class="button" style="vertical-align: middle"><span>İletişim</span></a></strong>
 
     </div>
-    <div id="section"><address><strong>
+    <div class="rcorners2 section"><address><strong>
     Hacettepe Üniversitesi<br><br>
     Beytepe Kampüsü<br><br>
     ANKARA / TÜRKİYE<br><br>
@@ -90,7 +95,7 @@
     </strong></address></div>
 
 
-    <div id="footer">
+    <div class="rcorners2 footer">
         Copyright © TSM
     </div>
 </body>
