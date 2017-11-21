@@ -30,7 +30,7 @@ $result4=$conn->query($sql4);
 
 $Sdegerler = array();
 $Rdegerler= array();
-$Ndegerler= array();
+$Ndegerler= array(); 
 $saat= array();
 
 $count1=0;
@@ -79,14 +79,14 @@ while ($row4 = $result4->fetch_assoc()) {
                 background-size: 100% auto;
             }
 
-            #header {
+            .header {
                 background-color: black;
                 color: darkcyan;
                 text-align: center;
                 padding: 5px;
             }
 
-            #footer {
+            .footer {
                 background-color: black;
                 color: white;
                 clear: both;
@@ -94,7 +94,7 @@ while ($row4 = $result4->fetch_assoc()) {
                 padding: 5px;
             }
 
-            #section {
+            .section {
 
                 padding: 60px;
             }
@@ -103,24 +103,42 @@ while ($row4 = $result4->fetch_assoc()) {
             .box {
                 border: #666666 solid 1px;
             }
+            
+            .rcorners2 {
+                border-radius: 25px;
+                border: 2px solid black;
+
+            }
+            
+            .rcorners1 {
+                border-radius: 15px 15px;
+                border: 3px solid #b3ffda;
+
+            }
+
+            .text {
+                text-align: center;
+            }
+
+            
 
         </style>
 
     </head>
 
     <body>
-        <div id="header">
+        <div class="rcorners2 header">
             <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
         </div>
-        <div style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
+        <div class="rcorners2" style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
             $result=$conn->query($sql);
             $row=$result->fetch_assoc();
-            echo $row["isim"]; ?></h2></strong><br>
+            echo $row["isim"]; ?></h2></strong>
             <p style="text-align:center; color:darkcyan;clear:both;"><strong>Seranızın son birkaç saat içindeki değerlerine ait grafik aşağıdaki gibidir.</strong></p><br>
-            <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Geri" onclick="location='welcome.php'" />
+            <input type="button" class="rcorners1 text" style="text-align:center; color:darkcyan; font-size:20px;" value="Geri" onclick="location='welcome.php'" />
         </div>
 
-        <div id="section" align="center">
+        <div class="section" align="center">
 
 
 
@@ -173,7 +191,7 @@ while ($row4 = $result4->fetch_assoc()) {
             <div id="line_top_x"></div>
 
         </div>
-        <div id="footer">
+        <div class="rcorners2 footer">
             Copyright © TMS
         </div>
 
