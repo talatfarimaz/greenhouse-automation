@@ -46,23 +46,15 @@
             opacity: 1;
             right: 0;
         }
-        
-        #header {
+
+        .header {
             background-color: black;
             color: darkcyan;
             text-align: center;
             padding: 5px;
         }
-        
-        
-        #section {
-            background-color: beige;
-            clear: both;
-            text-align: center;
-            padding: 140px;
-        }
-        
-        #footer {
+
+        .footer {
             background-color: black;
             color: white;
             clear: both;
@@ -70,12 +62,37 @@
             padding: 5px;
         }
 
+        .section {
+
+            padding: 60px;
+        }
+
+        .box {
+            border: #666666 solid 1px;
+        }
+
+        .rcorners2 {
+            border-radius: 25px;
+            border: 2px solid black;
+
+        }
+
+        .rcorners1 {
+            border-radius: 15px 15px;
+            border: 3px solid #b3ffda;
+            font-size: 18px;
+        }
+
+        .text {
+            text-align: center;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <div id="header">
+    <div class="header rcorners2">
         <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
     </div>
 
@@ -88,7 +105,7 @@
         <img src="greenhouse-schematic.png" alt="Temsili Fotoğraf" style="vertical-align: middle">
     </div>
 
-    <div id="footer">
+    <div class="footer rcorners2">
         Copyright © TSM
     </div>
 </body>
