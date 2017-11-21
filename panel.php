@@ -29,79 +29,14 @@ sleep(2);
             }
 
 
-
-            /* hide input */
-
-            input.radio:empty {
-                margin-left: -999px;
-            }
-
-            /* style label */
-
-            input.radio:empty~label {
-                position: relative;
-                float: left;
-                line-height: 2.5em;
-                text-indent: 3.25em;
-                margin-top: 2em;
-                cursor: pointer;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            input.radio:empty~label:before {
-                position: absolute;
-                display: block;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                content: '';
-                width: 2.5em;
-                background: #D1D3D4;
-                border-radius: 3px 0 0 3px;
-            }
-
-            /* toggle hover */
-
-            input.radio:hover:not(:checked)~label:before {
-                content: '\2714';
-                text-indent: .9em;
-                color: #C2C2C2;
-            }
-
-            input.radio:hover:not(:checked)~label {
-                color: #888;
-            }
-
-            /* toggle on */
-
-            input.radio:checked~label:before {
-                content: '\2714';
-                text-indent: .9em;
-                color: #9CE2AE;
-                background-color: #4DCB6D;
-            }
-
-            input.radio:checked~label {
-                color: #777;
-            }
-
-            /* radio focus */
-
-            input.radio:focus~label:before {
-                box-shadow: 0 0 0 3px #999;
-            }
-
-            #header {
+            .header {
                 background-color: black;
                 color: darkcyan;
                 text-align: center;
                 padding: 5px;
             }
 
-            #footer {
+            .footer {
                 background-color: black;
                 color: white;
                 clear: both;
@@ -109,7 +44,7 @@ sleep(2);
                 padding: 5px;
             }
 
-            #section {
+            .section {
 
                 padding: 60px;
             }
@@ -118,6 +53,17 @@ sleep(2);
             .box {
                 border: #666666 solid 1px;
             }
+            
+            .rcorners2 {
+                border-radius: 25px;
+                border: 2px solid black;
+
+            }
+            
+            .text {
+                text-align: center;
+            }
+
 
         </style>
 
@@ -127,21 +73,21 @@ sleep(2);
     </head>
 
     <body>
-        <div id="header">
+        <div class="rcorners2 header">
             <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
         </div>
 
         <div style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
             $result=$conn->query($sql);
             $row=$result->fetch_assoc();
-            echo $row["isim"]; ?></h2></strong><br>
+            echo $row["isim"]; ?></h2></strong>
             <p style="text-align:center; color:darkcyan;clear:both;"><strong>Sera bilgileriniz aşağıdaki gibidir. Lütfen seranızı kontrol etmek için kontrol panelini kullanınız.</strong></p>
         </div>
-        <div id="section" align="center">
-            <div style="width:350px; border: solid 1px #333333; background-color:#e6ffe6" align="left">
-                <div style="background-color:black; clear:both; text-align:center; color:darkcyan; padding:10px;"><b>Kontrol Paneli</b></div>
+        <div class="section rcorners2" align="center">
+            <div class="rcorners2" style="width:350px; border: solid 1px #333333; background-color:#e6ffe6" align="left">
+                <div class="rcorners2" style="background-color:black; clear:both; text-align:center; color:darkcyan; padding:10px;"><b>Kontrol Paneli</b></div>
 
-                <div style="margin:50px">
+                <div  style="margin:50px">
                     <form action="panel.php" method="post">
                         <strong>-----------------------</strong>
                         <div style="background-color:#e6ffe6; clear:both; text-align:left; color:darkcyan; padding:10px;"><b>VANA</b></div><br>
@@ -188,34 +134,47 @@ sleep(2);
                             {
                                 echo '<font color="green" ><strong>Vana Açık</strong></font><br>';
                                 fwrite($port1, "A");
+                                $vanaac = "UPDATE `sys`.`vana_havalandırma` SET `vana`='açık' WHERE `kisi_id_vh`='$id'";
+                                $change = $conn->query($vanaac);
                             }
 
                             if ($_POST["aç-kapat1"]=="kapat")
                             {
                                 echo '<font color="red"><strong>Vana Kapalı</strong></font><br>';
                                 fwrite($port1, "B");
+                                $vanakapat = "UPDATE `sys`.`vana_havalandırma` SET `vana`='kapalı' WHERE `kisi_id_vh`='$id'";
+                                $change = $conn->query($vanakapat);
                             }
 
                             if ($_POST["aç-kapat2"]=="aç")
                             {
                                 echo '<font color="green"><strong>Fan Açık</strong></font><br>';
                                 fwrite($port1, "C");
+                                $fanac = "UPDATE `sys`.`vana_havalandırma` SET `fan`='açık' WHERE `kisi_id_vh`='$id'";
+                                $change = $conn->query($fanac);
                             }
 
                             if ($_POST["aç-kapat2"]=="kapat")
                             {
                                 echo '<font color="red"><strong>Fan Kapalı</strong></font><br>';
                                 fwrite($port1, "D");
+                                $fankapat = "UPDATE `sys`.`vana_havalandırma` SET `fan`='kapalı' WHERE `kisi_id_vh`='$id'";
+                                $change = $conn->query($fankapat);
                             }
                             if ($_POST["aç-kapat3"]=="aç")
                             {
                                 echo '<font color="green"><strong>Havalandırma Açık</strong></font><br>';
                                 fwrite($port1, "E");
+                                $havaac = "UPDATE `sys`.`vana_havalandırma` SET `havalandirma`='açık' WHERE `kisi_id_vh`='$id'";
+                                $change = $conn->query($havaac);
                             }
 
                             if ($_POST["aç-kapat3"]=="kapat")
                             {
-                                echo '<font color="red"><strong>Havalandırma Kapalı</strong></font><br>';             fwrite($port1, "F");
+                                echo '<font color="red"><strong>Havalandırma Kapalı</strong></font><br>';             
+                                fwrite($port1, "F");
+                                $havakapat = "UPDATE `sys`.`vana_havalandırma` SET `havalandirma`='kapalı' WHERE `kisi_id_vh`='$id'";
+                                $change = $conn->query($havakapat);
                             }
 
 
@@ -234,7 +193,7 @@ sleep(2);
 
         </div>
 
-        <div id="footer">
+        <div class="footer rcorners2">
             Copyright © TMS
         </div>
 
