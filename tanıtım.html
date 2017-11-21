@@ -24,7 +24,7 @@
         .button span {
             cursor: pointer;
             display: inline-block;
-            position: relative;
+            position: relative; 
             transition: 0.5s;
         }
         
@@ -46,26 +46,32 @@
             right: 0;
         }
         
-        #header {
+        .header {
             background-color: black;
             color: darkcyan;
             text-align: center;
             padding: 5px;
         }
         
-        #section {
+        .section {
             background-color: beige;
             clear: both;
             text-align: center;
             padding: 140px;
         }
         
-        #footer {
+        .footer {
             background-color: black;
             color: white;
             clear: both;
             text-align: center;
             padding: 5px;
+        }
+        
+        .rcorners2 {
+            border-radius: 25px;
+            border: 2px solid black;
+
         }
 
     </style>
@@ -73,7 +79,7 @@
 
 <body>
 
-    <div id="header">
+    <div class="rcorners2 header">
         <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
     </div>
 
@@ -85,7 +91,7 @@
 
 
 
-    <div id="section">
+    <div class="rcorners2 section">
         <h2>SİSTEM TANITIMI</h2>
         <p>Projemiz, sera alanlarınızda sulama, havalandırma gibi temel işlevleri uzaktan kontrol sistemiyle internet bağlantısı aracılığıyla mobil ve web üzerinden kontrol edebilmenizi sağlamaktadır. </p>
         <p>Sistemimiz <strong>Arduino</strong> geliştirme kartları ile oluşturulmuştur.</p>
@@ -94,7 +100,7 @@
         <p>10 dekarlık bir sera alanınız için 15.000 lira fiyat değerlendirmesi yapılmaktadır.</p>
     </div>
 
-    <div id="footer">
+    <div class="rcorners2 footer">
         Copyright © talat&sedat
     </div>
 </body>
