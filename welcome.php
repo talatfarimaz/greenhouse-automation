@@ -31,15 +31,21 @@ $conn->query($sql2);*/
                 background-position: center top;
                 background-size: 100% auto;
             }
+            
+            label {
+                font-size: 21px;
+                text-decoration:underline;
+                color:  #008042 ;
+            }
 
-            #header {
+            .header {
                 background-color: black;
                 color: darkcyan;
                 text-align: center;
                 padding: 5px;
             }
 
-            #footer {
+            .footer {
                 background-color: black;
                 color: white;
                 clear: both;
@@ -47,14 +53,29 @@ $conn->query($sql2);*/
                 padding: 5px;
             }
 
-            #section {
+            .section {
 
                 padding: 60px;
             }
 
-
             .box {
                 border: #666666 solid 1px;
+            }
+
+            .rcorners2 {
+                border-radius: 25px;
+                border: 2px solid black;
+
+            }
+
+            .rcorners1 {
+                border-radius: 15px 15px;
+                border: 3px solid #b3ffda;
+                font-size: 18px;
+            }
+
+            .text {
+                text-align: center;
             }
 
         </style>
@@ -63,33 +84,34 @@ $conn->query($sql2);*/
 
     <body>
 
-        <div id="header">
+        <div class="header rcorners2">
             <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
         </div>
 
         <div style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİN <?php $sql="select isim from kisi_bilgileri where kisi_id='$id'";
             $result=$conn->query($sql);
             $row=$result->fetch_assoc();
-            echo $row["isim"]; ?></h2></strong><br>
+            echo $row["isim"]; ?></h2></strong>
             <p style="text-align:center; color:darkcyan;clear:both;"><strong>Sera bilgileriniz aşağıdaki gibidir. Lütfen seranızı kontrol etmek için kontrol panelini kullanınız.</strong></p>
         </div>
 
-        <div id="section" align="center">
-            <div style="width:400px; border: solid 1px #333333; background-color:#e6ffe6" align="left">
-                <div style="background-color:black; clear:both; text-align:center; color:darkcyan; padding:3px;"><b>Sera Durumu</b></div>
+        <div class="section rcorners2" align="center">
+            <div class="rcorners2" style="width:400px; border: solid 1px #333333; background-color:#e6ffe6" align="left">
+                <div class="rcorners2" style="background-color:black; clear:both; text-align:center; color:darkcyan; padding:3px;"><b>Sera Durumu</b></div>
 
-                <div style="margin:30px">
+                <div class="text" style="margin:30px">
 
                     <form action="" method="post">
-                        <label>rüzgar  :</label></br>
+                        <label>rüzgar</label></br>
                         </br><strong>
                   <?php $sql="SELECT ruzgar_deger FROM sera_bilgileri WHERE kisi_id_sera='$id'";
 					$result=$conn->query($sql);
 					$row = $result->fetch_assoc(); 
                 echo $row["ruzgar_deger"]; ?>&nbsp;km/s</strong></br>
                         </br>
+                        
 
-                        <label>sıcaklık  :</label></br>
+                        <label>sıcaklık</label></br>
                         </br><strong>
                   <?php $sql="SELECT sicaklik_deger FROM sera_bilgileri WHERE kisi_id_sera='$id'";
 					$result=$conn->query($sql);
@@ -97,7 +119,7 @@ $conn->query($sql2);*/
                             echo $row["sicaklik_deger"]; ?>&nbsp;&#8451;</strong></br>
                         </br>
 
-                        <label>nem  :</label></br>
+                        <label>nem</label></br>
                         </br><strong>
                   <?php $sql="SELECT nem_degerleri FROM sera_bilgileri WHERE kisi_id_sera='$id'";
 					$result=$conn->query($sql);
@@ -105,33 +127,42 @@ $conn->query($sql2);*/
 					echo $row["nem_degerleri"]; ?>&nbsp;&#37;</strong></br>
                         </br>
 
-                        <label>vana  :</label></br>
+                        <label>vana</label></br>
                         </br><strong>
-                  <?php $sql="SELECT vana_durum FROM sera_bilgileri WHERE kisi_id_sera='$id'";
+                  <?php $sql="SELECT vana FROM vana_havalandırma WHERE kisi_id_vh='$id'";
 					$result=$conn->query($sql);
 					$row = $result->fetch_assoc(); 
-					echo $row["vana_durum"]; ?></strong></br>
+					echo $row["vana"]; ?></strong></br>
                         </br>
 
-                        <label>havalandırma  :</label></br>
+                        <label>havalandırma</label></br>
                         </br><strong>
-                  <?php $sql="SELECT havalandirma_durum FROM sera_bilgileri WHERE kisi_id_sera='$id'";
-					$result=$conn->query($sql);
-					$row = $result->fetch_assoc(); 
-					echo $row["havalandirma_durum"]; ?></strong></br>
+                            <?php $sql="SELECT havalandirma FROM vana_havalandırma WHERE kisi_id_vh='$id'";
+                            $result=$conn->query($sql);
+                            $row = $result->fetch_assoc(); 
+                            echo $row["havalandirma"]; ?></strong></br>
                         </br>
 
-                        <label>saat  :</label></br>
+                        <label>fan</label></br>
                         </br><strong>
-                  <?php $sql="SELECT saat FROM sera_bilgileri WHERE kisi_id_sera='$id'";
-					$result=$conn->query($sql);
-					$row = $result->fetch_assoc(); 
-					echo $row["saat"]; ?></strong></br>
+                            <?php $sql="SELECT fan FROM vana_havalandırma WHERE kisi_id_vh='$id'";
+                            $result=$conn->query($sql);
+                            $row = $result->fetch_assoc(); 
+                            echo $row["fan"]; ?></strong></br>
                         </br>
 
-                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Çıkış" onclick="location='login.php'" /> &nbsp;&nbsp;
-                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Kontrol" onclick="location='panel.php'" /> &nbsp;&nbsp;
-                        <input type="button" style="text-align:center; color:darkcyan; padding:3px;" value="Grafik" onclick="location='grafik.php'" />
+                        <label>saat</label></br>
+                        </br><strong>
+    <?php $sql="SELECT saat FROM sera_bilgileri WHERE kisi_id_sera='$id'";
+    $result=$conn->query($sql);
+    $row = $result->fetch_assoc(); 
+    echo $row["saat"]; ?></strong></br>
+                        </br>
+
+
+                        <input type="button" class="rcorners1" style="text-align:center; color:darkcyan" value="Çıkış" onclick="location='login.php'" /> &nbsp;&nbsp;&nbsp;
+                        <input type="button" class="rcorners1" style="text-align:center; color:darkcyan" value="Kontrol" onclick="location='panel.php'" /> &nbsp;&nbsp;&nbsp;
+                        <input type="button" class="rcorners1" style="text-align:center; color:darkcyan" value="Grafik" onclick="location='grafik.php'" />
 
 
 
@@ -142,7 +173,7 @@ $conn->query($sql2);*/
 
         </div>
 
-        <div id="footer">
+        <div class="footer rcorners2">
             Copyright © TMS
         </div>
 
