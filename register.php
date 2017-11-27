@@ -23,6 +23,8 @@ $conn->query($sql);
               background-image: url(14.jpg);
               background-position: center top;
               background-size: 100% auto;
+              font-family: 'Lato', sans-serif;
+
           }
           
           .header {
@@ -42,7 +44,7 @@ $conn->query($sql);
 
           .section {
 
-              padding: 250px;
+              padding: 180px;
           }
 
           .box {
@@ -59,6 +61,8 @@ $conn->query($sql);
           .rcorners1 {
               border-radius: 15px 15px;
               border: 3px solid #b3ffda;
+              font-family: 'Lato', sans-serif;
+
 
           }
 
@@ -76,6 +80,11 @@ $conn->query($sql);
 	    <div class="rcorners2 header">
         <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
     </div>
+    
+       <div  style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİNİZ </h2></strong>
+           <p style="text-align:center; color:darkcyan;clear:both;"><strong>Yeni üyelik için isim, eposta ve şifrenizi giriniz. Daha sonra Kaydol butonuna tıklayınız.</strong></p><br>
+
+       </div>
 	
       <div class="rcorners2 section" align = "center">
           <div class="rcorners2" style = "width:300px; border: solid 1px #333333; background-color:#e6ffe6  " align = "left">
@@ -84,11 +93,11 @@ $conn->query($sql);
             <div class="text" style = "margin:30px">
                
                <form action = "register.php" method = "post">
-                   <label><strong>isim</strong> </label><input type = "text" name = "isim" class = "box rcorners1 text"/><br /><br />
+                   <label align="center"><strong>isim</strong> </label><br><input type = "text" name = "isim" class = "box rcorners1 text"/><br /><br /><br>
 
-                   <label><strong>eposta</strong> </label><input type = "text" name = "eposta" class = "box rcorners1 text"/><br /><br />
+                   <label align="center"><strong>eposta</strong> </label><br><input type = "text" name = "eposta" class = "box rcorners1 text"/><br /><br /><br>
 
-                   <label><strong>şifre</strong></label><input type = "password" name = "sifre" class = "box rcorners1 text"/><br /><br />
+                   <label align="center"><strong>şifre</strong></label><br><input type = "password" name = "sifre" class = "box rcorners1 text"/><br /><br /><br>
 
 					<input class="rcorners1"  id="button" type="submit" style="text-align:center; color:darkcyan; font-size:20px" name="submit" value="Kaydol">&nbsp;&nbsp;  <input class="rcorners1" type="button" style="text-align:center; color:darkcyan; font-size:20px" value="Çıkış" onclick="location='login.php'" />
                </form>
@@ -101,7 +110,7 @@ $conn->query($sql);
       </div>
       
       <div class="rcorners2 footer">
-        Copyright © talat&sedat
+        Copyright © TSM
     </div>
 
    </body>
