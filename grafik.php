@@ -77,6 +77,8 @@ while ($row4 = $result4->fetch_assoc()) {
                 background-image: url(14.jpg);
                 background-position: center top;
                 background-size: 100% auto;
+                font-family: 'Lato', sans-serif;
+
             }
 
             .header {
@@ -199,12 +201,3 @@ while ($row4 = $result4->fetch_assoc()) {
     </body>
 
 </html>
-
-
-
-
-
-
-
-
-
