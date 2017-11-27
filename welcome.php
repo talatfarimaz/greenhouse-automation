@@ -30,12 +30,14 @@ $conn->query($sql2);*/
                 background-image: url(14.jpg);
                 background-position: center top;
                 background-size: 100% auto;
+                font-family: 'Lato', sans-serif;
+
             }
-            
+
             label {
                 font-size: 21px;
-                text-decoration:underline;
-                color:  #008042 ;
+                text-decoration: underline;
+                color: #008042;
             }
 
             .header {
@@ -72,6 +74,7 @@ $conn->query($sql2);*/
                 border-radius: 15px 15px;
                 border: 3px solid #b3ffda;
                 font-size: 18px;
+
             }
 
             .text {
@@ -109,7 +112,7 @@ $conn->query($sql2);*/
 					$row = $result->fetch_assoc(); 
                 echo $row["ruzgar_deger"]; ?>&nbsp;km/s</strong></br>
                         </br>
-                        
+
 
                         <label>sıcaklık</label></br>
                         </br><strong>
@@ -153,10 +156,10 @@ $conn->query($sql2);*/
 
                         <label>saat</label></br>
                         </br><strong>
-    <?php $sql="SELECT saat FROM sera_bilgileri WHERE kisi_id_sera='$id'";
-    $result=$conn->query($sql);
-    $row = $result->fetch_assoc(); 
-    echo $row["saat"]; ?></strong></br>
+                            <?php $sql="SELECT saat FROM sera_bilgileri WHERE kisi_id_sera='$id'";
+                            $result=$conn->query($sql);
+                            $row = $result->fetch_assoc(); 
+                            echo $row["saat"]; ?></strong></br>
                         </br>
 
 
