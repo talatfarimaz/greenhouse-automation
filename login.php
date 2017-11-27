@@ -38,7 +38,12 @@
               background-image: url(14.jpg);
               background-position: center top;
               background-size: 100% auto;
+              font-family: 'Lato', sans-serif;
+
           }
+          
+         
+
           
 		    .header {
             background-color: black;
@@ -57,7 +62,7 @@
         
         .section {
                     
-            padding: 250px;
+            padding: 140px;
         }
          
          .box {
@@ -75,6 +80,7 @@
               border-radius: 15px 15px;
               border: 3px solid #b3ffda;
               
+              
           }
           
           .text {
@@ -90,17 +96,22 @@
 	    <div class="header rcorners2">
         <h1>AKILLI SERA OTOMASYON SİSTEMİ</h1>
     </div>
+       <div  style="clear:both; text-align: center; color:darkcyan; padding:1px"><br><strong><h2>HOŞGELDİNİZ </h2></strong>
+           <p style="text-align:center; color:darkcyan;clear:both;"><strong>Sisteme giriş yapmak için lütfen mail adresinizi ve şifrenizi giriniz. Yeni üyelik oluşturmak için Kaydol butonuna tıklayınız.</strong></p><br>
+
+       </div>
 	
       <div class="section rcorners2" align = "center">
+          
           <div class="rcorners2" style = "width:300px; border: solid 1px #333333; background-color:#e6ffe6 "  align = "left">
               <div class="rcorners2" style = "background-color:black; text-align:center; color:darkcyan; padding:3px;"><b>Giriş</b></div>
 				
             <div class="text" style = "margin:30px">
                
                <form action = "" method = "post">
-                   <label color="darkcyan"><strong>eposta</strong></label><input type = "text" name = "eposta" class = "box rcorners1 text"/><br /><br />
-                   <label color="darkcyan"><strong>şifre</strong></label><input type = "password" name = "sifre" class = "box rcorners1 text" /><br/><br />
-                  <input type = "submit" class="rcorners1" style="text-align:center; font-size:20px; color:darkcyan" value = " Giriş "/>&nbsp;&nbsp; <input type="button" class="rcorners1" style="text-align:center; font-size:20px; color:darkcyan" value="Kaydol" onclick="location='register.php'" />
+                   <label color="darkcyan" align="center"><strong>eposta</strong></label><br><input type = "text" name = "eposta" class = "box rcorners1 text"/><br /><br /><br>
+                   <label color="darkcyan" align="center"><strong>şifre</strong></label><br><input type = "password" name = "sifre" class = "box rcorners1 text" /><br/><br />
+                  <input type = "submit" class="rcorners1" style="text-align:center; font-size:20px; color:darkcyan" value = " Giriş "/>&nbsp;&nbsp; <input type="button" class="rcorners1" style="text-align:center; font-size:20px; color:darkcyan; " value="Kaydol" onclick="location='register.php'" />
                </form>
                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 					
